@@ -1,0 +1,35 @@
+<main>
+  <div class="carousel w-full h-96">
+    @for (item of carouselData; track $index) {
+    <div [id]="$index" class="carousel-item w-full">
+      <img
+        [src]="carouselData[$index].thumbnail"
+        alt=""
+        class="w-full object-cover"
+      />
+    </div>
+    }
+  </div>
+  <div class="flex justify-center w-full py-2 gap-2">
+    @for (item of carouselData; track $index) {
+    <a href="#{{ $index }}" class="btn btn-xs">{{ $index }}</a>
+    }
+  </div>
+  <div class="carousel w-full pl-3">
+    @for (item of weeklyProduct; track item) {
+    <div class="carousel-item">
+      <div
+        class="card card-compact w-56 sm:w-48 lg:w-64 xl:w-80 2xl:w-96 shadow-xl ml-3 mr-3"
+      >
+        <figure><img [src]="item!.images[0].link" alt="" /></figure>
+        <a href="/details/{{ item!.id }}">
+          <div class="card-body">
+            <h2 class="card-title">{{ item!.name }}</h2>
+            <p>${{ item.price }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    }
+  </div>
+</main>

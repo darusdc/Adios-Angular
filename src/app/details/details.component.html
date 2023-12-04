@@ -1,0 +1,60 @@
+<main class="p-10">
+  <div class="flex flex-col">
+    <div class="flex flex-row">
+      <button title="back" onclick="history.back()">
+        <svg
+          fill="#ffffff"
+          version="1.1"
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 512 512"
+          xml:space="preserve"
+          stroke="#ffffff"
+          class="h-5 w-5"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <g>
+              <g>
+                <path
+                  d="M512,214.98H173.609l68.354-68.354l-66.295-66.295L0,256l175.669,175.669l66.295-66.296l-68.354-68.354H512V214.98z M495.584,280.605H133.979l84.77,84.77l-43.08,43.08L23.215,256l152.454-152.453l43.08,43.08l-84.77,84.77h361.605V280.605z"
+                ></path>
+              </g>
+            </g>
+            <g>
+              <g>
+                <rect
+                  x="42.512"
+                  y="190.37"
+                  transform="matrix(0.7071 -0.7071 0.7071 0.7071 -104.1793 145.6448)"
+                  width="162.414"
+                  height="16.415"
+                ></rect>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </button>
+      <h1 class="font-bold text-3xl ml-3">{{ item[id].name }}</h1>
+    </div>
+    <div class="carousel rounded-box mt-10 h-80 sm:h-64 lg:h-96 xl:h-full">
+      @for (image of item[id].images; track image) {
+        <div class="carousel-item">
+          <img [src]="image.link" [alt]="item[id].name" title="1">
+        </div>
+      }
+    </div>
+    <article class="prose mt-5">
+      <h2>${{item[id].price}}</h2>
+      <p>
+        {{item[id].description}}
+      </p>
+    </article>
+  </div>
+</main>
